@@ -1,31 +1,31 @@
-"use strict";
 const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   class OrderItem extends Model {
-    static associate({ Orders, Item }) {
-      this.belongsTo(Orders, { foreignKey: "order_id" });
-      this.belongsTo(Item, { foreignKey: "item_id" });
+    static associate({ Product, Order }) {
+      this.belongsTo(Product, { foreignKey: "productId" });
+      this.belongsTo(Order, { foreignKey: "orderId" });
     }
   }
   OrderItem.init(
     {
-      order_id: {
+      productId: {
         allowNull: false,
         type: DataTypes.INTEGER,
         references: {
-          model: "Orders",
-          key: "id",
+          model: 'Products',
+          key: 'id',
         },
-        onDelete: "Cascade",
+        onDelete: 'CASCADE',
       },
-      item_id: {
+      orderId: {
         allowNull: false,
         type: DataTypes.INTEGER,
         references: {
-          model: "Item",
-          key: "id",
+          model: 'Orders',
+          key: 'id',
         },
-        onDelete: "Cascade",
+        onDelete: 'CASCADE',
       },
     },
     {

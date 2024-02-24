@@ -1,12 +1,11 @@
-"use strict";
 const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static associate({ Reviews, Like, Favorite, Orders }) {
-      this.hasMany(Reviews, { foreignKey: "user_id" });
-      this.hasMany(Like, { foreignKey: "user_id" });
-      this.hasMany(Favorite, { foreignKey: "user_id" });
-      this.hasMany(Orders, { foreignKey: "user_id" });
+    static associate({ Order, Comment, Favorites }) {
+      this.hasOne(Order, { foreignKey: "userId" });
+      this.hasMany(Comment, { foreignKey: "userId" });
+      this.hasMany(Favorites, { foreignKey: "userId" });
     }
   }
   User.init(
@@ -16,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
       },
       email: {
+        unique: true,
         allowNull: false,
         type: DataTypes.TEXT,
       },
@@ -25,11 +25,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       role: {
         allowNull: false,
-        type: DataTypes.BOOLEAN,
-      },
-      isAdmin: {
-        allowNull: false,
-        defaultValue: false,
         type: DataTypes.TEXT,
       },
     },

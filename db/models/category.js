@@ -1,19 +1,19 @@
-"use strict";
 const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   class Category extends Model {
-    static associate({ Item }) {
-      this.hasMany(Item, { foreignKey: "category_id"});
+    static associate({ Product }) {
+      this.hasMany(Product, { foreignKey: "categoryId" });
     }
   }
   Category.init(
     {
-      name: {
+      nameCategory: {
         allowNull: false,
+        unique: true,
         type: DataTypes.TEXT,
       },
-      image: {
-        allowNull: false,
+      img: {
         type: DataTypes.TEXT,
       },
     },
