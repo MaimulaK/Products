@@ -1,12 +1,13 @@
+
 const categoryAdd = document.querySelector(".add-form");
 // const cardContainer = document.querySelector(".card-container");
 
 if (categoryAdd) {
   categoryAdd.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const { name, img } = event.target;
+    const { nameCategory, img } = event.target;
     const data = {
-      nameCategory: name.value,
+      nameCategory: nameCategory.value,
       img: img.value,
     };
     const response = await fetch("/api/categories", {

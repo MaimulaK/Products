@@ -8,6 +8,7 @@ const categoryApiRouter = require("./api/category.api.router");
 router.use("/", mainRouter);
 
 router.use("/categories", categoryRouter);
+
 router.use("/api/categories", categoryApiRouter);
 
 module.exports = router;
