@@ -1,10 +1,13 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-const mainRouter = require('./views/mainPage.view.router');
-const categoryRouter = require('./views/categoryPage.view.router');
+const mainRouter = require("./views/mainPage.view.router");
+const categoryRouter = require("./views/categoryPage.view.router");
 
-router.use('/', mainRouter);
+const categoryApiRouter = require("./api/category.api.router");
 
-router.use('/categories', categoryRouter);
+router.use("/", mainRouter);
+
+router.use("/categories", categoryRouter);
+router.use("/api/categories", categoryApiRouter);
 
 module.exports = router;

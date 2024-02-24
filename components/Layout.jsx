@@ -6,7 +6,9 @@ module.exports = function Layout({ title, children }) {
       <head>
         <title>{title}</title>
         <link rel='stylesheet' href='/css/style.css' />
-        <script src='/js/script.js' />
+        {/* <script src='/js/script.js' /> */}
+        <script defer src='/scripts/category.js' />
+        
       </head>
       <body>{children}</body>
     </html>
