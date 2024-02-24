@@ -1,19 +1,27 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class OrderItem extends Model {
-    static associate({ Orders, Item }) {
-      this.belongsTo(Orders, { foreignKey: "order_id" });
+  class Reviews extends Model {
+    static associate({ Item, User }) {
       this.belongsTo(Item, { foreignKey: "item_id" });
+      this.belongsTo(User, { foreignKey: "user_id" });
     }
   }
-  OrderItem.init(
+  Reviews.init(
     {
-      order_id: {
+      reviewText: {
+        allowNull: false,
+        type: DataTypes.TEXT,
+      },
+      date: {
+        allowNull: false,
+        type: DataTypes.TEXT,
+      },
+      user_id: {
         allowNull: false,
         type: DataTypes.INTEGER,
         references: {
-          model: "Orders",
+          model: "Users",
           key: "id",
         },
         onDelete: "Cascade",
@@ -22,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.INTEGER,
         references: {
-          model: "Item",
+          model: "Items",
           key: "id",
         },
         onDelete: "Cascade",
@@ -30,8 +38,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "OrderItem",
+      modelName: "Reviews",
     }
   );
-  return OrderItem;
+  return Reviews;
 };
