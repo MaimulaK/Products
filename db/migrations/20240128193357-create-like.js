@@ -1,18 +1,33 @@
+"use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('categories', {
+    await queryInterface.createTable("Likes", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      nameCategoty: {
+      user_id: {
         allowNull: false,
-        unique: true,
-        type: Sequelize.TEXT,
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Users",
+          key: "id",
+        },
+        onDelete: "Cascade",
       },
+      item_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Items",
+          key: "id",
+        },
+        onDelete: "Cascade",
+      },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -24,6 +39,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('categories');
+    await queryInterface.dropTable("Likes");
   },
 };
