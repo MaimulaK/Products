@@ -6,6 +6,7 @@ function CategoryItem({ category }) {
     <div className='categoryItem'>
       <h3>{category.nameCategory}</h3>
       <img src={category.img}/>
+      <button className='button-Delete'>Удалить категорию</button>
     </div>
   );
 }
