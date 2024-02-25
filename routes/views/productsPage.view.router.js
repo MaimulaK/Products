@@ -1,12 +1,19 @@
-const router = require('express').Router();
-const { Product } = require('../../db/models');
-const ProductsPage = require('../../components/ProductsPage');
+const router = require("express").Router();
+const { Product } = require("../../db/models");
+const ProductsPage = require("../../components/ProductsPage");
+const { Category } = require("../../db/models");
 
-router.get('/', async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
-    const products = await Product.findAll();
+    const { id } = req.params;
+    // console.log(req.params);
+    const category = await Category.findOne({ where: { id } });
+    const products = await Product.findAll({
+      where: { categoryId: id },
+    });
     const document = res.renderComponent(ProductsPage, {
-      title: 'Produktii',
+      title: "Produktii",
+      category,
       products,
     });
     res.send(document);
