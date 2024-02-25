@@ -1,0 +1,12 @@
+.navBar{
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 2fr));
+    grid-gap: 20px;
+  }
