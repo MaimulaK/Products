@@ -6,7 +6,7 @@ function CategoryItem({ category }) {
     <div className='categoryItem'>
       <h3>{category.nameCategory}</h3>
       <button>
-        <a href={'/products/'}><img src={category.img} /></a>
+        <a href={`/products/${category.id}`}><img src={category.img} /></a>
         
       </button>
       <button className='button-Delete'>Удалить категорию</button>
