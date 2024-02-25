@@ -11,6 +11,9 @@ function NavBar(){
                     <li>
                         <a href="/">Main</a>
                     </li>
+                    <li>
+                        <a href="/products">Products</a>
+                    </li>
                 </ul>
             </div>
         </nav>
