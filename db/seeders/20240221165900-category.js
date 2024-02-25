@@ -8,6 +8,18 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        nameCategory: "Konopla",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Cannabis_sativa.jpg/268px-Cannabis_sativa.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        nameCategory: "Krupa",
+        img: "https://vos-mo.ru/upload/iblock/b5d/jwm4gc26onm1ug7x2zgpb4n5exi7col7/item_178.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ]);
   },
   async down(queryInterface, Sequelize) {
