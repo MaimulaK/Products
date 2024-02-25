@@ -3,7 +3,7 @@ const React = require('react');
 function CategoryItem({ category }) {
   // console.log(category,);
   return (
-    <div className='categoryItem'>
+    <div className='categoryItem' data-id={category.id}>
       <h3>{category.nameCategory}</h3>
       <button>
         <a href={'/products/'}><img src={category.img} /></a>
