@@ -2,9 +2,9 @@ const React = require("react");
 
 function NavBar(){
     return(
-        <nav className="navBar">
+        <nav class="nav-wrapper">
             <div>
-                <ul>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li>
                         <a href="/categories">Categories</a>
                     </li>
